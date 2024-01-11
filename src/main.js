@@ -74,7 +74,7 @@ class Tile {
             this.y = lerp(this.startY, this.targetY, this.animProgress, "easeOutCubic");
         
             if (this.animProgress >= 1) {
-                sfxMove.play(1);
+                sfxMove.play(0.5);
 
                 this.startX = this.x;
                 this.startY = this.y;
@@ -98,7 +98,7 @@ class Tile {
             this.y = centerY - (tex.h * this.scale) / 2;
             
             if (this.animProgress >= 1) {
-                sfxMerge.play(1);
+                sfxMerge.play(0.5);
                 this.texture = textures.tiles;
 
                 this.animPlaying = false;
@@ -383,7 +383,7 @@ function drawStart() {
         layers.main.drawImage(textures.start2, 0, 0);
 
         if (isActionJustPressed("leftClick")) {
-            sfxUi.play(1);
+            sfxUi.play(0.5);
             Game.setGameState("run");
             init();
         }
@@ -400,7 +400,7 @@ function drawGameOver() {
 
         if (checkCollision(Game.mousePos, winCollider)) {
             if (isActionJustPressed("leftClick")) {
-                sfxUi.play(1);
+                sfxUi.play(0.5);
                 Game.setGameState("start");
             }
         }
@@ -411,7 +411,7 @@ function drawGameOver() {
             layers.main.drawImage(textures.over2, 0, 0);
     
             if (isActionJustPressed("leftClick")) {
-                sfxUi.play(1);
+                sfxUi.play(0.5);
                 Game.setGameState("start");
             }
         }
